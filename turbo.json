@@ -1,0 +1,44 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**", "out/**"],
+      "env": ["NEXT_PUBLIC_BASE_PATH"],
+      "passThroughEnv": [
+        "AUTH_SECRET",
+        "AUTH_URL",
+        "APP_ORIGIN",
+        "MONGODB_URI",
+        "REDIS_URL",
+        "UPSTASH_REDIS_REST_URL",
+        "UPSTASH_REDIS_REST_TOKEN",
+        "AUTH_GOOGLE_ID",
+        "AUTH_GOOGLE_SECRET",
+        "TRUST_PROXY",
+        "RATE_LIMIT_NAMESPACE"
+      ]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "passThroughEnv": [
+        "AUTH_SECRET",
+        "AUTH_URL",
+        "APP_ORIGIN",
+        "MONGODB_URI",
+        "REDIS_URL",
+        "UPSTASH_REDIS_REST_URL",
+        "UPSTASH_REDIS_REST_TOKEN",
+        "AUTH_GOOGLE_ID",
+        "AUTH_GOOGLE_SECRET",
+        "TRUST_PROXY",
+        "RATE_LIMIT_NAMESPACE"
+      ]
+    },
+    "typecheck": {
+      "dependsOn": ["^typecheck"],
+      "outputs": []
+    }
+  }
+}

@@ -1,0 +1,47 @@
+name: parle-italiano
+services:
+  mongo:
+    image: mongo:7
+    command: ['mongod', '--replSet', 'rs0', '--bind_ip_all']
+    ports: ['127.0.0.1:27017:27017']
+    volumes: ['mongo-data:/data/db']
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'mongosh',
+          '--quiet',
+          '--eval',
+          "try { if (rs.status().myState !== 1) quit(1) } catch (e) { rs.initiate({_id:'rs0', members:[{_id:0,host:'mongo:27017'}]}); quit(1) }",
+        ]
+      interval: 3s
+      timeout: 5s
+      retries: 30
+  redis:
+    image: redis:7-alpine
+    command: ['redis-server', '--appendonly', 'yes']
+    ports: ['127.0.0.1:6379:6379']
+    volumes: ['redis-data:/data']
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 3s
+      timeout: 3s
+      retries: 10
+  app:
+    build: .
+    ports: ['127.0.0.1:3000:3000']
+    environment:
+      AUTH_SECRET: ${AUTH_SECRET:?Generate AUTH_SECRET in .env}
+      APP_ORIGIN: ${APP_ORIGIN:-http://localhost:3000}
+      AUTH_URL: ${AUTH_URL:-http://localhost:3000}
+      MONGODB_URI: mongodb://mongo:27017/parle?replicaSet=rs0
+      REDIS_URL: redis://redis:6379
+      TRUST_PROXY: ${TRUST_PROXY:-false}
+      AUTH_GOOGLE_ID: ${AUTH_GOOGLE_ID:-}
+      AUTH_GOOGLE_SECRET: ${AUTH_GOOGLE_SECRET:-}
+    depends_on:
+      mongo: { condition: service_healthy }
+      redis: { condition: service_healthy }
+volumes:
+  mongo-data:
+  redis-data:

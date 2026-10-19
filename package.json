@@ -1,0 +1,43 @@
+{
+  "name": "parle-italiano",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "npm@11.9.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev --filter=@parle/web",
+    "build": "turbo run build --filter=@parle/web",
+    "build:preview": "turbo run build --filter=@parle/preview",
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "turbo run typecheck && tsc --noEmit -p tsconfig.tools.json",
+    "test": "vitest run",
+    "test:integration": "node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run --config vitest.integration.config.ts",
+    "test:e2e": "node --env-file-if-exists=.env node_modules/@playwright/test/cli.js test",
+    "db:indexes": "tsx --env-file-if-exists=.env scripts/ensure-indexes.ts",
+    "check": "npm run lint && npm run typecheck && npm test && npm run build",
+    "configure:local": "node scripts/configure-local.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "start": "node --env-file-if-exists=.env scripts/start-standalone.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "@playwright/test": "1.64.1",
+    "@types/node": "^22.18.0",
+    "eslint": "^9.39.0",
+    "eslint-config-next": "16.4.2",
+    "prettier": "^3.9.10",
+    "tsx": "^4.20.6",
+    "turbo": "2.11.9",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.0",
+    "vitest": "^3.2.4"
+  },
+  "type": "module"
+}

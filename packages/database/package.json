@@ -1,0 +1,17 @@
+{
+  "name": "@parle/database",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "mongoose": "9.11.2",
+    "@parle/contracts": "*"
+  },
+  "devDependencies": {}
+}
