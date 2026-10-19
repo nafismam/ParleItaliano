@@ -30,9 +30,17 @@ userSchema.index(
   { unique: true, partialFilterExpression: { googleSubject: { $type: 'string' } } },
 );
 userSchema.pre('validate', function () {
-  if (this.authProvider === 'credentials' && !this.passwordHash)
+  if (
+    this.authProvider === 'credentials' &&
+    (this.isNew || this.isModified('authProvider') || this.isSelected('passwordHash')) &&
+    !this.passwordHash
+  )
     this.invalidate('passwordHash', 'Password credentials are required');
-  if (this.authProvider === 'google' && !this.googleSubject)
+  if (
+    this.authProvider === 'google' &&
+    (this.isNew || this.isModified('authProvider') || this.isSelected('googleSubject')) &&
+    !this.googleSubject
+  )
     this.invalidate('googleSubject', 'Google subject is required');
 });
 const ruleSchema = new Schema(
@@ -67,7 +75,17 @@ const topicDocumentSchema = new Schema(
     cefrLevel: { type: String, enum: ['A1', 'A2', 'B1', 'B2', 'C1'], required: true },
     category: {
       type: String,
-      enum: ['Verbs', 'Pronouns', 'Prepositions', 'Syntax', 'Articles'],
+      enum: [
+        'Verbs',
+        'Pronouns',
+        'Prepositions',
+        'Syntax',
+        'Articles',
+        'Nouns',
+        'Adjectives',
+        'Time',
+        'Everyday',
+      ],
       required: true,
     },
     estimatedMinutes: { type: Number, min: 1, max: 120, required: true },
@@ -154,6 +172,19 @@ const attemptSchema = new Schema(
     exerciseId: { type: String, required: true },
     isCorrect: { type: Boolean, required: true },
     answer: { type: String, required: true, maxlength: 1000 },
+    xpAwarded: { type: Number, default: 0, min: 0, max: 60 },
+    gradingResult: {
+      type: new Schema(
+        {
+          isCorrect: { type: Boolean, required: true },
+          correctAnswer: { type: String, required: true },
+          explanation: { type: String, required: true },
+          xpAwarded: { type: Number, required: true },
+        },
+        { _id: false, strict: 'throw' },
+      ),
+      default: undefined,
+    },
     expiresAt: { type: Date, required: true },
   },
   { timestamps: true, collection: 'exercise_attempts', strict: 'throw' },

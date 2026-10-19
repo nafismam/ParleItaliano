@@ -69,7 +69,17 @@ export const topicSchema = z
       .max(100),
     title: z.string().trim().min(1).max(150),
     cefrLevel: cefrLevelSchema,
-    category: z.enum(['Verbs', 'Pronouns', 'Prepositions', 'Syntax', 'Articles']),
+    category: z.enum([
+      'Verbs',
+      'Pronouns',
+      'Prepositions',
+      'Syntax',
+      'Articles',
+      'Nouns',
+      'Adjectives',
+      'Time',
+      'Everyday',
+    ]),
     estimatedMinutes: z.number().int().min(1).max(120),
     theoryMarkdown: z.string().min(30).max(100000),
     keyRules: z
@@ -105,6 +115,33 @@ export type PublicExercise = {
     'correctAnswer' | 'explanation'
   >;
 }[Exercise['type']];
+export type LearningTopic = Omit<Topic, 'exercises'> & { exercises: PublicExercise[] };
+export type TopicProgress = {
+  correctExerciseIds: string[];
+  attempts: number;
+  completedAt: string | null;
+  lastPracticedAt: string;
+};
+export type PracticeActivity = {
+  id: string;
+  date: string;
+  topicSlug: string;
+  isCorrect: boolean;
+  xp: number;
+};
+export type LearningSnapshot = {
+  topics: Record<string, TopicProgress>;
+  xp: number;
+  streakDays: number;
+  lastActiveDate: string | null;
+  activity: PracticeActivity[];
+};
+export type GradeResult = {
+  isCorrect: boolean;
+  correctAnswer: string;
+  explanation: string;
+  xpAwarded?: number;
+};
 export function toPublicExercise(exercise: Exercise): PublicExercise {
   const { correctAnswer: _answer, explanation: _explanation, ...visible } = exercise;
   void _answer;
@@ -115,5 +152,11 @@ export const submissionSchema = z
   .object({ exerciseId: z.uuid(), answer: z.string().trim().min(1).max(1000), attemptId: z.uuid() })
   .strict();
 export function normalizeAnswer(answer: string): string {
-  return answer.normalize('NFC').trim().replace(/\s+/g, ' ').toLocaleLowerCase('it-IT');
+  return answer
+    .normalize('NFC')
+    .trim()
+    .replace(/[’‘]/g, "'")
+    .replace(/[.!?]+$/, '')
+    .replace(/\s+/g, ' ')
+    .toLocaleLowerCase('it-IT');
 }

@@ -4,7 +4,9 @@
 
 The `GitHub Pages frontend preview` workflow runs on pushes to `main` or manual dispatch. In the repository's **Settings → Pages**, select **GitHub Actions** as the source. GitHub Pages availability depends on repository visibility and the account's plan. The workflow sets the repository base path, exports `apps/preview/out`, uploads it, and deploys through the `github-pages` environment. Use the URL returned by the successful deployment; a workflow file alone does not establish that a site is live.
 
-The preview contains the shared foundation view and an explicit preview notice. Pages cannot run Auth.js, API routes, MongoDB, or Redis. No OAuth/database secret belongs in this workflow or a `NEXT_PUBLIC_*` variable. The final interactive learning preview can be expanded with the frontend stage; it must not pretend to persist server progress.
+The static edition includes the complete shared interface: roadmap, notes, practice, bookmarks, goals, XP, and progress. It saves on the current browser/device and identifies this storage mode. Hash navigation supports lesson links, reloads, and back/forward on Pages. Educational answer keys are intentionally included for local grading; this edition must not be used for secure assessments. Pages cannot run Auth.js, API routes, MongoDB, or Redis. No OAuth/database secret belongs in the Pages workflow or a `NEXT_PUBLIC_*` variable.
+
+`npm run test:preview` builds and tests the actual repository base path before release. The expected URL for this repository is `https://nafismam.github.io/ParleItaliano/`; verify the deployment URL and public HTTP response after publication.
 
 ## Full server deployment
 
@@ -23,13 +25,13 @@ Required runtime settings:
 | `AUTH_GOOGLE_ID`, `AUTH_GOOGLE_SECRET`               | Optional pair enabling Google sign-in                              |
 | `TRUST_PROXY`                                        | `true` only with an ingress that replaces forwarded client IPs     |
 
-Configure Google's authorized redirect URI as `https://YOUR_HOST/api/auth/callback/google`. Do not enable automatic account linking. Supply secrets securely in host settings, never in source or chat. Run `npm run db:indexes` with production database access as a one-off migration before rollout. The production image intentionally has no migration tooling.
+Configure Google's authorized redirect URI as `https://YOUR_HOST/api/auth/callback/google`. Do not enable automatic account linking. Supply secrets securely in host settings, never in source or chat. Run `npm run db:indexes` and `npm run seed` with production database access as a one-off migration before rollout. Public lesson JSON is cached for five minutes; allow that window after editorial refreshes. The production image intentionally has no migration tooling.
 
 Use `/api/health` as a dependency readiness probe; it returns `503` if configuration, MongoDB, or Redis is unavailable, with no connection-string leakage. Restrict public probe exposure at the ingress if desired. Collect JSON stdout logs and alert on error status and latency. Load tests, real Google OAuth verification, managed-service connectivity, backup/restore drills, and production capacity measurements have not been performed by the local test suite.
 
 ## Cloud workspace
 
-Use the existing `/workspace/ParleItaliano` checkout; cloud tasks are already isolated and do not need another Git worktree. Local generated credentials are ignored. Retained dependency files/images differ from running processes: after a new task starts, start MongoDB/Redis again, run index checks, and launch the server. Saved cloud setup/start instructions do not publish the cloud environment or deploy GitHub Pages.
+Use the existing `/workspace/ParleItaliano` checkout; cloud tasks are already isolated and do not need another Git worktree. Local generated credentials are ignored. Retained dependency files/images differ from running processes: after a new task starts, start MongoDB/Redis again, run index checks and the repeatable seed, and launch the server. Saved cloud setup/start instructions do not publish the cloud environment or deploy GitHub Pages.
 
 ## TLS-intercepting build environments
 

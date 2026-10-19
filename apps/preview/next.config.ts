@@ -4,7 +4,7 @@ const config: NextConfig = {
   trailingSlash: true,
   basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
   images: { unoptimized: true },
-  transpilePackages: ['@parle/ui'],
+  transpilePackages: ['@parle/ui', '@parle/content', '@parle/contracts'],
   poweredByHeader: false,
 };
 export default config;

@@ -1,0 +1,16 @@
+{
+  "name": "@parle/content",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/catalog.ts",
+    "./roadmap": "./src/roadmap.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@parle/contracts": "*"
+  }
+}

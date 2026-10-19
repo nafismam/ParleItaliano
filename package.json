@@ -19,14 +19,17 @@
     "test": "vitest run",
     "test:integration": "node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run --config vitest.integration.config.ts",
     "test:e2e": "node --env-file-if-exists=.env node_modules/@playwright/test/cli.js test",
+    "test:preview": "node node_modules/@playwright/test/cli.js test --config playwright.preview.config.ts",
     "db:indexes": "tsx --env-file-if-exists=.env scripts/ensure-indexes.ts",
     "check": "npm run lint && npm run typecheck && npm test && npm run build",
     "configure:local": "node scripts/configure-local.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "start": "node --env-file-if-exists=.env scripts/start-standalone.mjs"
+    "start": "node --env-file-if-exists=.env scripts/start-standalone.mjs",
+    "seed": "tsx --env-file-if-exists=.env scripts/seed.ts"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
     "@eslint/js": "^9.39.0",
     "@playwright/test": "1.64.1",
     "@types/node": "^22.18.0",

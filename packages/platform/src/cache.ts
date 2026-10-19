@@ -53,3 +53,28 @@ export async function disconnectCache(): Promise<void> {
   local = undefined;
   remote = undefined;
 }
+
+/** Content caching fails open; authentication rate limits continue to fail closed. */
+export async function cacheJson<T>(
+  key: string,
+  ttlSeconds: number,
+  loader: () => Promise<T>,
+): Promise<T> {
+  const name = `parle:${serverEnv().RATE_LIMIT_NAMESPACE}:content:${key}`;
+  try {
+    const client = clients();
+    const cached = client.local ? await client.local.get(name) : await client.remote!.get<T>(name);
+    if (cached !== null) return (typeof cached === 'string' ? JSON.parse(cached) : cached) as T;
+  } catch {
+    /* Read outages must not make public notes unavailable. */
+  }
+  const result = await loader();
+  try {
+    const client = clients();
+    if (client.local) await client.local.set(name, JSON.stringify(result), 'EX', ttlSeconds);
+    else await client.remote!.set(name, result, { ex: ttlSeconds });
+  } catch {
+    /* MongoDB remains the source of truth. */
+  }
+  return result;
+}

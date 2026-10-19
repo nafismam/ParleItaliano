@@ -80,7 +80,7 @@ export function apiHandler(
     try {
       const response = await handler(request);
       response.headers.set('X-Request-Id', requestId);
-      response.headers.set('Cache-Control', 'no-store');
+      if (!response.headers.has('Cache-Control')) response.headers.set('Cache-Control', 'no-store');
       logger.info(
         { requestId, status: response.status, durationMs: Date.now() - started },
         'api.request',

@@ -1,3 +1,3 @@
 export { serverEnv, type ServerEnvironment } from './env';
 export { logger } from './logger';
-export { rateLimit, pingCache, disconnectCache } from './cache';
+export { rateLimit, pingCache, disconnectCache, cacheJson } from './cache';

@@ -18,8 +18,8 @@ export default async function Page() {
       </p>
       <h1 className="mt-4 text-4xl font-bold tracking-tight">Ciao, {user.name}.</h1>
       <p className="mt-4 text-slate-400">
-        Your account is ready. Grammar lessons and the learning dashboard arrive in the next build
-        stages.
+        Your next little breakthrough is waiting. Explore your learning path, save a lesson, or make
+        a little time for practice.
       </p>
       <dl className="mt-10 grid gap-4 sm:grid-cols-3">
         {[
@@ -33,6 +33,12 @@ export default async function Page() {
           </div>
         ))}
       </dl>
+      <Link
+        href="/"
+        className="mt-8 inline-flex items-center gap-3 rounded-lg bg-electric px-5 py-3 text-sm font-medium"
+      >
+        Your learning space <span aria-hidden>↗</span>
+      </Link>
       <SignOut />
     </main>
   );

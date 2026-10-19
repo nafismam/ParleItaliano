@@ -1,0 +1,870 @@
+/* The large display gives the interface its rhythm; reading text keeps its own generous scale. */
+.mobile-sidebar .brand small,
+.mobile-sidebar .nav-label,
+.mobile-sidebar .sidebar-bottom > button,
+.mobile-sidebar .sidebar-profile small {
+  color: #9d8faa;
+}
+.primary-button {
+  background: #7160d3;
+}
+.primary-button:hover:not(:disabled) {
+  background: #7560d9;
+}
+.check-answer {
+  background: #78539f;
+}
+.check-answer:hover:not(:disabled) {
+  background: #805ca7;
+}
+.check-answer.success-button {
+  background: #416e5b;
+}
+.check-answer.success-button:hover:not(:disabled) {
+  background: #4a7762;
+}
+.learning-workspace .large-progress > span,
+.learning-workspace .path-search > span,
+.learning-workspace .section-title > span,
+.learning-workspace .section-card-heading .eyebrow,
+.learning-workspace .section-card-heading > span,
+.learning-workspace .activity-chart > div > span,
+.learning-workspace .activity-caption,
+.learning-workspace .mastery-card > p,
+.learning-workspace .mastery-visual small {
+  color: #b29ac1;
+}
+.learning-workspace .brand small,
+.learning-workspace .nav-label,
+.learning-workspace .sidebar-bottom > button,
+.learning-workspace .sidebar-profile small,
+.learning-workspace .workspace-select small,
+.learning-workspace .header-search > span,
+.learning-workspace .header-search kbd,
+.learning-workspace .page-welcome > span,
+.learning-workspace .library-heading .eyebrow,
+.learning-workspace .library-heading h2 > span,
+.learning-workspace .quote-card > span:not(.quote-mark),
+.learning-workspace .quote-foot,
+.learning-workspace .workspace-footer,
+.learning-workspace .workspace-footer > span:first-child > span:last-child,
+.learning-workspace .workspace-footer i,
+.learning-workspace .notes-intro-bar,
+.learning-workspace .group-count > span,
+.learning-workspace .topic-column-head {
+  color: #9d8faa;
+}
+.learning-workspace .topic-practice {
+  color: #aa93bc !important;
+}
+.learning-workspace .word-type,
+.learning-workspace .word-card-bottom > span:first-child,
+.learning-workspace .goal-ring > div > span {
+  color: #b5a0c5;
+}
+.settings-dialog p,
+.settings-profile > div > span,
+.settings-section p,
+.settings-signin p,
+.settings-dialog .goal-options span,
+.settings-dialog .help-footnote,
+.settings-dialog .reset-button,
+.search-section-label,
+.search-results small,
+.search-footer,
+.search-empty {
+  color: #b79ac8;
+}
+.learning-workspace .topic-title {
+  color: #d0c8dc;
+}
+.learning-workspace .topic-title > small {
+  color: #8a8196;
+}
+.learning-workspace .path-heading-text > span {
+  color: #ded7e8;
+}
+.learning-workspace .path-heading-text small {
+  color: #898091;
+}
+.learning-workspace .stat-label {
+  color: #aaa2b6;
+}
+.learning-workspace .stat-detail {
+  color: #8a8195;
+}
+.learning-workspace .grammar-notes {
+  color: #b9acc4;
+}
+.learning-workspace .grammar-notes p {
+  color: inherit;
+}
+.learning-workspace .grammar-notes blockquote {
+  color: #b8a3c8;
+}
+.learning-workspace .grammar-notes td {
+  color: #b39dc2;
+}
+.learning-workspace .grammar-notes th {
+  color: #d0b6e2;
+}
+.learning-workspace .question-type {
+  color: #ab8cbd;
+}
+.learning-workspace .exercise-question h3 {
+  color: #eee0f7;
+}
+.learning-workspace .answer-option {
+  color: #c7afd8 !important;
+}
+.learning-workspace .answer-option.is-correct {
+  color: #b7ddc6 !important;
+}
+.learning-workspace .exercise-bottom-note {
+  color: #a482b5;
+}
+.learning-workspace .answer-feedback > p {
+  color: #a9c3b3;
+}
+.learning-workspace .feedback-incorrect > p {
+  color: #bfa1b0;
+}
+.learning-workspace .written-answer > label {
+  color: #c7a8da;
+}
+.learning-workspace .answer-tip {
+  color: #a17bb3;
+}
+.learning-workspace .lesson-header h1 {
+  color: #f0e7f8;
+}
+.learning-workspace .lesson-header > div > p {
+  color: #ac96bb;
+}
+.learning-workspace .lesson-meta {
+  color: #a185b4;
+}
+.learning-workspace .daily-goal-card > p {
+  color: #9c8caa;
+}
+.learning-workspace .word-definition {
+  color: #b59dc4;
+}
+.learning-workspace .nav-item {
+  color: #9b96a7;
+}
+.learning-workspace .nav-item.is-active {
+  color: #c4b7ff;
+}
+.learning-workspace .hero-copy > p {
+  color: #afa5bf;
+}
+.learning-workspace .library-tabs button {
+  color: #93899f;
+}
+.learning-workspace .library-tabs button.is-active {
+  color: #cfbaff;
+}
+.learning-workspace .page-intro > div > p:last-child {
+  color: #a590b5;
+}
+.learning-workspace .path-search input {
+  color: #d5c2e5;
+}
+.learning-workspace .lesson-back-row {
+  color: #9275a7;
+}
+.learning-workspace .quick-reference p {
+  color: #b299c1;
+}
+.learning-workspace .quick-reference h3 {
+  color: #d0b2e1;
+}
+.learning-workspace .note-disclosure > summary {
+  color: #d1b7e0;
+}
+.learning-workspace .task-list-item label {
+  color: #b4a1c2;
+}
+.learning-workspace .note-flashcard > span:last-child {
+  color: #ad87be;
+}
+.learning-workspace .stat-value {
+  color: #f0eaf7;
+}
+.learning-workspace .practice-topic > span:nth-child(2) {
+  color: #d9c4e8;
+}
+.learning-workspace .practice-topic small {
+  color: #ab86bf;
+}
+.learning-workspace .progress-path > span:nth-child(2) {
+  color: #d9c0e8;
+}
+.learning-workspace .progress-path small {
+  color: #a780bb;
+}
+.learning-workspace .recent-activity small {
+  color: #a17eb2;
+}
+.learning-workspace .topic-status {
+  border-color: #9d8db546;
+}
+.learning-workspace .header-left {
+  color: #c3b9d1;
+}
+.learning-workspace .breadcrumb-muted {
+  color: #8d839a;
+}
+.feedback-correct {
+  animation: correct-glow 0.7s ease-out;
+}
+.exercise-completion .celebration-spark {
+  animation: spark-appear 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.exercise-completion .s2 {
+  animation-delay: 0.12s;
+}
+.exercise-completion .s3 {
+  animation-delay: 0.25s;
+}
+@keyframes correct-glow {
+  0% {
+    box-shadow: 0 0 0 0 #8fbd9f2b;
+  }
+  100% {
+    box-shadow: 0 0 0 12px #8fbd9f00;
+  }
+}
+@keyframes spark-appear {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-50deg);
+  }
+  70% {
+    transform: scale(1.3) rotate(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+@media (min-width: 901px) {
+  .nav-item {
+    font-size: 12px;
+    height: 45px;
+  }
+  .workspace-select > span:nth-child(2) {
+    font-size: 11px;
+  }
+  .workspace-select small {
+    font-size: 9px;
+  }
+  .nav-label {
+    font-size: 9px;
+  }
+  .sidebar-journey h3 {
+    font-size: 13px;
+  }
+  .sidebar-journey p {
+    font-size: 10px;
+  }
+  .sidebar-journey button,
+  .sidebar-bottom > button {
+    font-size: 11px;
+  }
+  .sidebar-profile > span:nth-child(2) {
+    font-size: 10px;
+  }
+  .sidebar-profile small {
+    font-size: 8px;
+  }
+  .header-left {
+    font-size: 11px;
+  }
+  .header-search {
+    font-size: 11px;
+  }
+  .hero-copy > p {
+    font-size: 13px;
+    line-height: 1.85;
+  }
+  .hero-copy h1 {
+    font-size: clamp(45px, 4.1vw, 66px);
+  }
+  .hero-action .primary-button {
+    font-size: 12px;
+    min-height: 43px;
+  }
+  .hero-action > span {
+    font-size: 9px;
+  }
+  .hero-kicker {
+    font-size: 8px;
+  }
+  .page-welcome {
+    font-size: 9px;
+  }
+  .page-welcome > span {
+    font-size: 8px;
+  }
+  .stat-label {
+    font-size: 11px;
+  }
+  .stat-value {
+    font-size: 29px;
+    line-height: 1.6;
+  }
+  .stat-value > span {
+    font-size: 11px;
+  }
+  .stat-detail {
+    font-size: 9px;
+  }
+  .stat-card {
+    padding-top: 19px;
+    padding-bottom: 19px;
+  }
+  .library-heading h2 {
+    font-size: 24px;
+  }
+  .library-heading h2 > span {
+    font-size: 11px;
+  }
+  .library-heading .eyebrow {
+    font-size: 8px;
+  }
+  .library-tabs button {
+    font-size: 11px;
+    padding-bottom: 13px;
+  }
+  .library-tabs button > span {
+    font-size: 8px;
+  }
+  .level-select,
+  .level-select select {
+    font-size: 9px;
+  }
+  .level-select select {
+    max-width: 110px;
+  }
+  .path-heading-text > span {
+    font-size: 12px;
+  }
+  .path-heading-text small {
+    font-size: 10px;
+  }
+  .start-here {
+    font-size: 6px;
+  }
+  .path-group-heading {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+  .group-count {
+    font-size: 9px;
+  }
+  .topic-title {
+    font-size: 12px;
+  }
+  .topic-title > small {
+    font-size: 10px;
+    line-height: 1.6;
+  }
+  .topic-main {
+    padding-top: 13px;
+    padding-bottom: 13px;
+  }
+  .topic-row {
+    min-height: 74px;
+  }
+  .topic-column-head {
+    font-size: 7px;
+    padding-top: 12px;
+    padding-bottom: 10px;
+  }
+  .level-badge {
+    font-size: 8px;
+    width: 30px;
+    line-height: 18px;
+  }
+  .topic-practice {
+    font-size: 9px;
+  }
+  .all-paths-link {
+    font-size: 11px;
+    padding-top: 23px;
+  }
+  .rail-heading > span {
+    font-size: 7px;
+  }
+  .daily-goal-card h3 {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .daily-goal-card > p {
+    font-size: 10px;
+  }
+  .secondary-button {
+    font-size: 10px;
+    min-height: 38px;
+  }
+  .word-type {
+    font-size: 8px;
+  }
+  .word-card h3 {
+    font-size: 30px;
+  }
+  .word-definition {
+    font-size: 10px;
+  }
+  .word-card-bottom > span:first-child {
+    font-size: 8px;
+  }
+  .quote-card > p {
+    font-size: 26px;
+  }
+  .quote-card > span:not(.quote-mark) {
+    font-size: 9px;
+  }
+  .quote-foot {
+    font-size: 6px;
+  }
+  .page-intro h1 {
+    font-size: 46px;
+  }
+  .page-intro .eyebrow {
+    font-size: 9px;
+  }
+  .page-intro > div > p:last-child {
+    font-size: 13px;
+  }
+  .path-search input {
+    font-size: 12px;
+  }
+  .path-search > span {
+    font-size: 10px;
+  }
+  .path-card-description {
+    font-size: 12px;
+  }
+  .lesson-back-row {
+    font-size: 10px;
+  }
+  .lesson-header h1 {
+    font-size: 38px;
+  }
+  .lesson-header .eyebrow {
+    font-size: 8px;
+  }
+  .lesson-header > div > p {
+    font-size: 13px;
+  }
+  .lesson-meta {
+    font-size: 10px;
+  }
+  .save-lesson-button {
+    font-size: 11px;
+    padding: 10px 13px;
+  }
+  .notes-intro-bar {
+    font-size: 8px;
+  }
+  .grammar-notes {
+    font-size: 14px;
+  }
+  .grammar-notes h2 {
+    font-size: 24px;
+  }
+  .grammar-notes h3 {
+    font-size: 18px;
+  }
+  .grammar-notes blockquote {
+    font-size: 13px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .grammar-notes table {
+    font-size: 12px;
+  }
+  .grammar-notes th {
+    font-size: 11px;
+    padding: 13px;
+  }
+  .grammar-notes td {
+    font-size: 12px;
+    padding: 13px;
+  }
+  .note-disclosure > summary {
+    font-size: 12px;
+    padding: 15px;
+  }
+  .listen-button {
+    font-size: 11px;
+    padding: 10px 13px;
+  }
+  .task-list-item label {
+    font-size: 13px;
+  }
+  .note-flashcard strong {
+    font-size: 18px;
+  }
+  .note-flashcard.is-flipped strong {
+    font-size: 14px;
+  }
+  .note-flashcard > span:last-child {
+    font-size: 10px;
+  }
+  .note-flashcard .eyebrow {
+    font-size: 7px;
+  }
+  .question-type {
+    font-size: 11px;
+  }
+  .exercise-question h3 {
+    font-size: 20px;
+  }
+  .exercise-topline .eyebrow {
+    font-size: 7px;
+  }
+  .exercise-topline > .mono {
+    font-size: 10px;
+  }
+  .answer-option {
+    font-size: 13px;
+    min-height: 52px;
+  }
+  .option-letter {
+    font-size: 9px;
+  }
+  .answer-feedback strong {
+    font-size: 11px;
+  }
+  .answer-feedback > p {
+    font-size: 11px;
+  }
+  .earned-xp {
+    font-size: 8px;
+  }
+  .check-answer {
+    font-size: 12px;
+    min-height: 45px;
+  }
+  .exercise-bottom-note {
+    font-size: 9px;
+  }
+  .answer-tip {
+    font-size: 10px;
+  }
+  .written-answer > label {
+    font-size: 12px;
+  }
+  .written-answer input {
+    font-size: 15px;
+    padding: 14px;
+  }
+  .practice-panel-footer > span:nth-child(2) {
+    font-size: 10px;
+  }
+  .practice-panel-footer strong {
+    font-size: 9px;
+  }
+  .feedback-incorrect .correct-answer {
+    font-size: 13px;
+  }
+  .practice-topic > span:nth-child(2) {
+    font-size: 12px;
+  }
+  .practice-topic small {
+    font-size: 10px;
+  }
+  .practice-topic-grid {
+    gap: 14px;
+  }
+  .practice-launch p {
+    font-size: 13px;
+  }
+  .practice-launch .eyebrow {
+    font-size: 8px;
+  }
+  .practice-launch .primary-button {
+    font-size: 12px;
+  }
+  .section-title {
+    font-size: 24px;
+  }
+  .section-title > span {
+    font-size: 11px;
+  }
+  .progress-path > span:nth-child(2) {
+    font-size: 12px;
+  }
+  .progress-path small {
+    font-size: 10px;
+  }
+  .quick-reference h3 {
+    font-size: 13px;
+  }
+  .quick-reference p {
+    font-size: 12px;
+  }
+  .quick-reference blockquote {
+    font-size: 11px;
+  }
+  .quick-reference .text-button {
+    font-size: 11px;
+  }
+  .progress-path {
+    padding-top: 19px;
+    padding-bottom: 19px;
+  }
+  .saved-card h2 {
+    font-size: 21px;
+  }
+  .saved-card > p {
+    font-size: 12px;
+  }
+  .saved-card .eyebrow {
+    font-size: 8px;
+  }
+  .recent-activity > div > span:nth-child(2) {
+    font-size: 12px;
+  }
+  .recent-activity small {
+    font-size: 10px;
+  }
+  .workspace-footer > span:last-child {
+    font-size: 9px;
+  }
+  .workspace-footer > span:first-child > span:last-child {
+    font-size: 9px;
+  }
+}
+@media (min-width: 901px) and (max-width: 1200px) {
+  .hero-copy h1 {
+    font-size: 43px;
+  }
+  .hero-copy > p {
+    font-size: 11px;
+  }
+  .hero-action > span {
+    font-size: 8px;
+  }
+  .hero-kicker {
+    font-size: 7px;
+  }
+  .hero-card {
+    grid-template-columns: 1.2fr 1fr;
+  }
+  .topic-title {
+    font-size: 11px;
+  }
+  .topic-title > small {
+    font-size: 9px;
+  }
+  .path-heading-text > span {
+    font-size: 11px;
+  }
+  .path-heading-text small {
+    font-size: 9px;
+  }
+  .library-tabs {
+    gap: 15px;
+  }
+  .library-tabs button {
+    font-size: 10px;
+  }
+  .library-heading h2 {
+    font-size: 22px;
+  }
+  .stat-detail {
+    font-size: 8px;
+  }
+  .stat-label {
+    font-size: 10px;
+  }
+  .lesson-header h1 {
+    font-size: 31px;
+  }
+  .lesson-meta {
+    font-size: 8px;
+  }
+  .lesson-header > div > p {
+    font-size: 11px;
+  }
+  .grammar-notes {
+    font-size: 13px;
+  }
+  .grammar-notes td {
+    font-size: 10px;
+  }
+  .grammar-notes th {
+    font-size: 10px;
+  }
+  .exercise-question h3 {
+    font-size: 18px;
+  }
+  .answer-option {
+    font-size: 12px;
+  }
+  .answer-feedback > p {
+    font-size: 10px;
+  }
+  .answer-feedback strong {
+    font-size: 10px;
+  }
+  .daily-goal-card h3 {
+    font-size: 11px;
+  }
+  .daily-goal-card > p {
+    font-size: 9px;
+  }
+  .word-definition {
+    font-size: 8px;
+  }
+  .word-card h3 {
+    font-size: 26px;
+  }
+  .secondary-button {
+    font-size: 9px;
+  }
+  .rail-heading > span {
+    font-size: 6px;
+  }
+  .page-intro h1 {
+    font-size: 39px;
+  }
+  .page-intro > div > p:last-child {
+    font-size: 12px;
+  }
+  .section-title {
+    font-size: 22px;
+  }
+  .quick-reference p {
+    font-size: 11px;
+  }
+  .quick-reference h3 {
+    font-size: 12px;
+  }
+}
+@media (max-width: 450px) {
+  .learning-workspace .topic-title {
+    font-size: 11px;
+  }
+  .learning-workspace .topic-title > small {
+    font-size: 9px;
+  }
+  .learning-workspace .topic-main {
+    padding-top: 13px;
+    padding-bottom: 13px;
+  }
+  .learning-workspace .topic-row {
+    min-height: 77px;
+  }
+  .learning-workspace .path-heading-text > span {
+    font-size: 11px;
+  }
+  .learning-workspace .path-heading-text small {
+    font-size: 8px;
+  }
+  .learning-workspace .library-tabs button {
+    font-size: 9px;
+  }
+  .learning-workspace .level-select select {
+    font-size: 8px;
+  }
+  .learning-workspace .library-tabs {
+    gap: 15px;
+  }
+  .learning-workspace .stat-label {
+    font-size: 8px;
+  }
+  .learning-workspace .hero-copy > p {
+    font-size: 12px;
+  }
+  .learning-workspace .hero-action > span {
+    font-size: 7px;
+  }
+  .learning-workspace .header-left {
+    font-size: 9px;
+  }
+  .learning-workspace .header-left .breadcrumb-muted {
+    font-size: 8px;
+  }
+  .learning-workspace .daily-goal-card > p {
+    font-size: 8px;
+  }
+  .learning-workspace .daily-goal-card h3 {
+    font-size: 10px;
+  }
+  .learning-workspace .word-definition {
+    font-size: 7px;
+  }
+  .learning-workspace .secondary-button {
+    font-size: 9px;
+  }
+  .learning-workspace .lesson-meta {
+    font-size: 8px;
+    gap: 12px;
+  }
+  .learning-workspace .lesson-header > div > p {
+    font-size: 11px;
+  }
+  .learning-workspace .exercise-bottom-note {
+    font-size: 9px;
+  }
+  .learning-workspace .question-type {
+    font-size: 10px;
+  }
+  .learning-workspace .answer-tip {
+    font-size: 9px;
+  }
+  .learning-workspace .exercise-topline .eyebrow {
+    font-size: 7px;
+  }
+  .learning-workspace .exercise-topline > .mono {
+    font-size: 9px;
+  }
+  .learning-workspace .grammar-notes {
+    font-size: 13px;
+  }
+  .learning-workspace .grammar-notes td {
+    font-size: 11px;
+  }
+  .learning-workspace .grammar-notes th {
+    font-size: 10px;
+  }
+  .learning-workspace .grammar-notes blockquote {
+    font-size: 12px;
+  }
+  .learning-workspace .note-disclosure > summary {
+    font-size: 11px;
+  }
+  .learning-workspace .task-list-item label {
+    font-size: 12px;
+  }
+  .learning-workspace .note-flashcard > span:last-child {
+    font-size: 9px;
+  }
+  .learning-workspace .listen-button {
+    font-size: 11px;
+  }
+  .learning-workspace .path-card-description {
+    font-size: 11px;
+  }
+  .learning-workspace .section-title {
+    font-size: 20px;
+  }
+  .learning-workspace .practice-topic > span:nth-child(2) {
+    font-size: 11px;
+  }
+  .learning-workspace .practice-topic small {
+    font-size: 8px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .feedback-correct,
+  .exercise-completion .celebration-spark {
+    animation: none !important;
+  }
+}

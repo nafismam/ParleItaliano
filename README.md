@@ -1,6 +1,8 @@
 # Parle Italiano
 
-A modular Italian grammar learning platform. This commit implements **Steps 1–2: architecture, infrastructure, database, and authentication**. Content seeding, grading APIs, XP/streak updates, and the kinetic learning dashboard are the next stages. No sample lessons or simulated learning statistics are shipped.
+A focused Italian grammar workspace: 37 lessons, eight learning paths, and 185 exercises. Explore the roadmap, read interactive notes, practice four exercise types, save lessons, and see your real mastery, XP, and streaks. The dark interface combines Plus Jakarta Sans, original typographic artwork, Framer Motion, Radix dialogs, and Lenis; reduced-motion and keyboard alternatives are supported.
+
+The GitHub Pages edition grades locally and saves progress in the browser. The full Next.js application supports email/Google authentication, cached MongoDB lessons, server grading, and transactional account progress. Bookmarks and daily goals are device preferences in both editions.
 
 ## Quick start
 
@@ -11,6 +13,7 @@ npm ci
 npm run configure:local
 docker compose up -d --wait mongo redis
 npm run db:indexes
+npm run seed
 npm run dev
 ```
 
@@ -34,13 +37,16 @@ MongoDB is a single-node replica set so transaction behavior matches Atlas devel
 apps/web          Next.js server app, auth, account pages, API routes, CSP
 apps/preview      Separate static Next.js export for GitHub Pages
 packages/contracts Zod contracts, exercise validation, safe public exercise projection
+packages/content   Trusted editorial lessons and browser-safe roadmap
 packages/database  Pooled Mongoose connection and indexed models
 packages/platform  Runtime environment validation, Redis limiter, structured logging
-packages/ui        Shared typography, Tailwind tokens, accessible primitives, foundation view
-scripts            Local configuration and explicit database index migration
-tests              Contract, database/cache integration, and browser auth tests
+packages/ui        Shared learning workspace, notes, exercises, motion, and local state
+scripts            Local configuration, seed/index migrations, static preview server
+tests              Contracts, grading/concurrency, auth, and desktop/mobile learning flows
 docs               Architecture and deployment decisions
 ```
+
+Seed the curated lessons after MongoDB is healthy with `npm run seed`. Seeding is repeatable, preserves each topic’s database identity and exercise IDs, and never deletes user progress.
 
 ## Checks
 
@@ -51,12 +57,13 @@ npm test
 npm run test:integration
 npx playwright install --with-deps chromium
 npm run test:e2e
+npm run test:preview
 npm run build
 NEXT_PUBLIC_BASE_PATH=/ParleItaliano npm run build:preview
 docker build -t parle-italiano:local .
 ```
 
-Integration tests require the services above. They create uniquely identified test documents and clean up their own records. Browser tests exercise real registration and sessions against a production build on an isolated server at port 3100, with a unique rate-limit namespace per run. Set `E2E_BASE_URL` only to an explicitly designated local test server to test an existing build instead. Set `PLAYWRIGHT_EXECUTABLE_PATH=/usr/bin/chromium` to use an existing system browser in constrained environments. `PLAYWRIGHT_BROWSERS_PATH` and `BUILDX_CONFIG` can point to writable directories if the home directory is read-only. CI downloads the matching Playwright browser.
+Integration tests require the services above. They create uniquely identified test documents and clean up their own records. Browser tests exercise registration, sessions, grading, and complete learning flows against a production build at port 3100, with a unique rate-limit namespace per run. `test:preview` builds the real `/ParleItaliano` static export and tests learning flows on port 4300. Set `E2E_BASE_URL` only to an explicitly designated local test server to test an existing build instead. Set `PLAYWRIGHT_EXECUTABLE_PATH=/usr/bin/chromium` to use an existing system browser in constrained environments. `PLAYWRIGHT_BROWSERS_PATH` and `BUILDX_CONFIG` can point to writable directories if the home directory is read-only. CI downloads the matching Playwright browser.
 
 ## Deploy and preview
 
@@ -64,4 +71,4 @@ See [deployment instructions](docs/deployment.md). `pages.yml` builds and deploy
 
 Auth.js v5 is pinned to `5.0.0-beta.32`; its prerelease status is an explicit dependency risk. Review upstream security updates before a public launch. Password registration is implemented; email verification, password recovery, account deletion, and privacy/retention policies are required product follow-up before opening public self-service registration.
 
-See [architecture](docs/architecture.md) for security boundaries and the next build stages.
+See [architecture](docs/architecture.md), [curriculum](docs/curriculum.md), [content notes](docs/content-authoring.md), and [deployment instructions](docs/deployment.md).

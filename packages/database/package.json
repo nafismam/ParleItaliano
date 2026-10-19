@@ -4,14 +4,16 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./catalog": "./src/catalog.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "mongoose": "9.11.2",
-    "@parle/contracts": "*"
+    "@parle/contracts": "*",
+    "@parle/content": "*"
   },
   "devDependencies": {}
 }

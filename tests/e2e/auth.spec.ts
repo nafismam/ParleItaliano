@@ -1,5 +1,12 @@
 import { randomUUID } from 'node:crypto';
-import { connectDatabase, disconnectDatabase, User } from '@parle/database';
+import {
+  connectDatabase,
+  disconnectDatabase,
+  User,
+  UserProgress,
+  ExerciseAttempt,
+} from '@parle/database';
+import { grammarCatalog } from '@parle/content';
 import { test, expect } from '@playwright/test';
 test('registration, sign-in, profile authorization, and sign-out', async ({ page }) => {
   const email = `browser-${randomUUID()}@example.com`;
@@ -22,6 +29,32 @@ test('registration, sign-in, profile authorization, and sign-out', async ({ page
   expect(profile.user.email).toBe(email);
   expect(profile.user.role).toBe('learner');
   expect(profile.user.passwordHash).toBeUndefined();
+  const lesson = grammarCatalog.find((topic) => topic.slug === 'articoli-determinativi')!;
+  const exercise = lesson.exercises[0]!;
+  const attempt = {
+    exerciseId: exercise.exerciseId,
+    answer: exercise.correctAnswer,
+    attemptId: randomUUID(),
+  };
+  const submit = () =>
+    page.request.post(`/api/topics/${lesson.slug}/grade`, {
+      headers: { Origin: process.env.E2E_BASE_URL || 'http://localhost:3100' },
+      data: attempt,
+    });
+  const firstGrade = await submit();
+  expect(firstGrade.status()).toBe(200);
+  expect((await firstGrade.json()).xpAwarded).toBe(10);
+  expect((await (await submit()).json()).xpAwarded).toBe(10);
+  const progress = await (await page.request.get('/api/progress')).json();
+  expect(progress.xp).toBe(10);
+  expect(progress.topics[lesson.slug].correctExerciseIds).toHaveLength(1);
+  const topics = await page.request.get('/api/topics');
+  expect(topics.headers()['cache-control']).toContain('s-maxage=300');
+  for (const topic of (await topics.json()).topics)
+    for (const question of topic.exercises) {
+      expect(question.correctAnswer).toBeUndefined();
+      expect(question.explanation).toBeUndefined();
+    }
   expect((await page.request.get('/api/admin')).status()).toBe(403);
   await connectDatabase(process.env.MONGODB_URI!);
   try {
@@ -38,6 +71,8 @@ test('registration, sign-in, profile authorization, and sign-out', async ({ page
     await expect(page.getByRole('heading', { name: 'Ciao, Browser Learner.' })).toBeVisible();
     await page.getByRole('button', { name: 'Sign out', exact: true }).click();
   } finally {
+    await UserProgress.deleteMany({ userId: profile.user._id });
+    await ExerciseAttempt.deleteMany({ userId: profile.user._id });
     await User.deleteOne({ email });
     await disconnectDatabase();
   }

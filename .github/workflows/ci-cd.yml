@@ -33,10 +33,11 @@ jobs:
       - run: npm test
       - run: npm run test:integration
       - run: npm run db:indexes
+      - run: npm run seed
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
       - run: npm run build
-      - run: npm run build:preview
+      - run: npm run test:preview
       - uses: docker/setup-buildx-action@v3
       - uses: docker/build-push-action@v6
         with:

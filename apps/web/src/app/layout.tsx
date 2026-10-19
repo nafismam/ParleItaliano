@@ -4,6 +4,7 @@ import '@parle/ui/styles.css';
 export const metadata: Metadata = {
   title: 'Parle Italiano — Make Italian second nature',
   description: 'A focused space for mastering Italian grammar.',
+  icons: { icon: '/icon.svg' },
 };
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   await headers();
